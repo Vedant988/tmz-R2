@@ -24,8 +24,8 @@ Since the tokenizer can't store every possible glued combination in its fixed vo
 I noticed an underscore (`_` or the special Unicode block equivalent) at the start of many tokens. This is classic SentencePiece behavior. 
 Unlike standard Byte-Pair Encoding (BPE)—which assumes that spaces are the only real boundaries between words—SentencePiece treats the space itself as just another character. This is absolutely crucial for Indic languages where word boundaries are less strict and complex diacritics often span across multiple characters.
 
-**Unicode Fragmentation (Byte-Level Backoff)**
-In some of the more complex words, the tokenizer just gives up and splits characters all the way down to their raw Unicode bytes. You'll see Tamil consonants (e.g., "க") and their vowel modifiers (e.g., the curve that makes it "கா") split into completely separate tokens. This happens because the model has backed off to byte-level tokenization for rare or highly complex combinations.
+**Unified Devanagari Script Mapping (Cross-Lingual Transfer)**
+A shocking observation from the token breakdown is that the Tamil text is entirely tokenized into **Devanagari script** (e.g., `थेके`, `प्रोडक्ट्स`). The tokenizer doesn't split native Tamil characters like "க"; instead, it transliterates the Tamil text into a unified Indic script (Devanagari) under the hood. This is a brilliant architectural decision by AI4Bharat to achieve cross-lingual transfer: by mapping all 22 Indic languages to a single phonetic script space, the model shares vocabulary across languages, massively reducing OOV (Out of Vocabulary) errors and allowing low-resource languages to piggyback on high-resource language data.
 
 ---
 
