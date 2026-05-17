@@ -1,0 +1,62 @@
+Project 1: Evaluation of Indic Translation Models.
+
+I have broken it down into actionable phases matching the required repository structure and task descriptions.
+
+Phase 1: Environment Setup & Data Preparation
+Initialize the Repository: Set up your GitHub monorepo with the exact structure outlined in the guide. Create the task1_translation_evaluation/ folder and its subfolders (part_a..., part_b..., part_c...).
+
+Install Dependencies: Create your root requirements.txt. You will likely need libraries such as transformers, torch, sacrebleu, pandas, matplotlib, seaborn, and jupyter.
+
+Load the Data: Obtain your source dataset (the guide suggests naming it translation_dataset.csv) and place it inside the data/raw/ directory.
+
+Phase 2: Part A - Batch Translation and Evaluation
+Goal: Translate text to Tamil and evaluate the translation quality.
+
+Create Notebook: Start part_a_translation_evaluation.ipynb.
+
+Select & Load Model: Load the highly recommended ai4bharat/indictrans2-en-indic-1B model (or alternatives like nllb-200-distilled-600M or opus-mt-en-ta).
+
+Execute Translation: Run your batch translation from English to Tamil.
+
+Compute Metrics: Use the sacrebleu library to calculate the sacreBLEU score for your translations.
+
+Save Artifacts: Export your results to translation_outputs.csv and sacrebleu_results.csv, and write your findings in observations.md.
+
+Phase 3: Part B - Token-Based Comparative Analysis
+Goal: Compare how different models tokenize the text.
+
+Create Notebook: Start part_b_token_eda.ipynb.
+
+Select 3 Models: Choose three diverse models to compare (e.g., IndicTrans2, NLLB, and mt5-base).
+
+Translate Sample: Translate a subset of 100-500 sentences using all three models.
+
+Calculate Token Metrics: For each sentence/model, compute:
+
+source_token_count & target_token_count
+
+expansion_ratio (target / source)
+
+avg_word_length
+
+subword_fragmentation & unknown_token_rate
+
+Generate EDA Plots: Create histograms (token counts), boxplots (expansion ratios), and scatter plots (source vs. target tokens). Save these in the plots/ folder.
+
+Save Artifacts: Export token_counts.csv and engineered_features.csv, and summarize why certain models have lower expansion rates in observations.md.
+
+Phase 4: Part C - Indic Token Behavior Analysis
+Goal: Deep dive into how Tamil-specific linguistic features are handled.
+
+Create Notebook: Start part_c_indic_token_analysis.ipynb.
+
+Analyze Linguistic Handling: Investigate subword splitting, Unicode fragmentation, and rare token frequency.
+
+Synthesize Insights: Discuss the impact of Tamil's agglutinative structure, the differences between SentencePiece and BPE tokenizers, and how English-centric tokenizers struggle with Tamil.
+
+Save Artifacts: Export tokenization_comparison.csv and tamil_token_patterns.csv, and write your final conclusions in observations.md.
+
+Phase 5: Finalization
+Update Documentation: Fill out the README.md inside the task1_translation_evaluation/ folder explaining how to run these notebooks.
+
+Record Demo: Record a brief screen-share demo of your Task 1 notebooks and findings, upload it to Google Drive, and link it in your final submission.

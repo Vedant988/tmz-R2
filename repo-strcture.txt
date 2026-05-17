@@ -1,0 +1,100 @@
+. GitHub Repository Structure
+To ensure a professional, reproducible, and well-organized submission, the project should
+be structured as a research and engineering monorepo. The following directory and file
+structure is recommended:
+Plain Text
+
+indic-translation-asr-project/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── LICENSE
+│
+├── data/
+│ ├── raw/
+│ │ ├── translation_dataset.csv
+│ │ └── sample_audio/
+│ │
+│ ├── processed/
+│ │ ├── translated_outputs/
+│ │ ├── token_analysis/
+│ │ └── asr_outputs/
+│ │
+│ └── results/
+│ ├── sacrebleu_scores.csv
+│ ├── token_statistics.csv
+│ └── plots/
+│
+├── docs/
+│ ├── architecture/
+│ │ ├── system_architecture.png
+│ │ └── buffer_flow_diagram.png
+│ │
+│ ├── recordings/
+│ │ └── demo_links.md
+│ │
+
+│ └── reports/
+│ ├── project1_summary.pdf
+│ └── project2_summary.pdf
+│
+├── task1_translation_evaluation/
+│ │
+│ ├── README.md
+│ │
+│ ├── part_a_batch_translation/
+│ │ ├── part_a_translation_evaluation.ipynb
+│ │ ├── translation_outputs.csv
+│ │ ├── sacrebleu_results.csv
+│ │ └── observations.md
+│ │
+│ ├── part_b_token_analysis/
+│ │ ├── part_b_token_eda.ipynb
+│ │ ├── token_counts.csv
+│ │ ├── engineered_features.csv
+│ │ ├── plots/
+│ │ └── observations.md
+│ │
+│ └── part_c_indic_token_behavior/
+│ ├── part_c_indic_token_analysis.ipynb
+│ ├── tokenization_comparison.csv
+│ ├── tamil_token_patterns.csv
+│ ├── plots/
+│ └── observations.md
+│
+├── task2_asr_transliteration/
+│ │
+│ ├── README.md
+│ ├── requirements.txt
+│ ├── Dockerfile
+│ ├── docker-compose.yml
+│ │
+│ ├── app/
+│ │ ├── main.py
+│ │ ├── asr_pipeline.py
+│ │ ├── transliteration.py
+│ │ ├── buffer_manager.py
+│ │ ├── interface.py
+│ │ └── utils.py
+│ │
+│ ├── models/
+│ │ └── model_config.py
+│ │
+│ ├── static/
+│ ├── templates/
+
+│ │
+│ ├── sample_inputs/
+│ │ └── sample.wav
+│ │
+│ ├── outputs/
+│ │ ├── transcripts/
+│ │ └── transliterations/
+│ │
+│ └── tests/
+│ └── test_pipeline.py
+│
+└── presentation/
+├── final_presentation.pptx
+└── evaluation_video_link.md
