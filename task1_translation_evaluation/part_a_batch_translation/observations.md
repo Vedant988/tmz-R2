@@ -1,4 +1,3 @@
-%%writefile task1_translation_evaluation/part_a_batch_translation/observations.md
 # Part A: Batch Translation Observations
 
 **Model Evaluated:** `ai4bharat/indictrans2-en-indic-1B`
