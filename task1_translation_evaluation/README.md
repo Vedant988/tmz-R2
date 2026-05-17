@@ -119,7 +119,17 @@ Sentence 10 (*"Data structures and algorithms are essential for software enginee
 
 ### Unknown Token Rate
 
-All three models scored **0.0** across all 15 sentences. Zero `<UNK>` tokens. This confirms that modern multilingual tokenizers — whether SentencePiece (IndicTrans2/mT5) or BPE (NLLB) — have completely solved out-of-vocabulary handling for Tamil, even for complex diacritics and compound consonants.
+All three models scored **0.0** across all 15 sentences. Zero `<UNK>` tokens.
+
+This is a promising result, but it needs to be taken with a grain of salt. Our 15 sentences are clean, general-domain English — no rare proper nouns, no code-mixed "Tanglish", no domain-specific jargon, no archaic Tamil dialect forms. This is a best-case scenario for any tokenizer.
+
+What would actually stress-test OOV handling:
+- **Rare Tamil proper nouns** (village names, historical figures)
+- **Code-mixed input**: *"Please check the பில்ல் before you checkout"*
+- **Technical/medical terminology** with no Tamil equivalent
+- **Transliterated Tamil in Roman script** (common in social media)
+
+On *this* dataset, the 0.0 rate simply confirms that all three models have broad enough Unicode coverage to handle standard Tamil diacritics and compound consonants without falling back to `<UNK>`. That's a meaningful baseline — but it's a floor, not a ceiling.
 
 ### The Three Architectures Tell Three Different Stories
 
