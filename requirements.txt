@@ -9,6 +9,7 @@ einops>=0.7.0
 # Tokenization
 sentencepiece>=0.1.99
 sacremoses>=0.0.53
+IndicTransToolkit @ git+https://github.com/VarunGumma/IndicTransToolkit.git
 
 # Evaluation & Metrics
 sacrebleu>=2.3.1
